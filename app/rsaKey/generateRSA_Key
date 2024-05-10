@@ -1,0 +1,14 @@
+install openssl
+https://www.openssl.org/source/
+
+generate RSA key pair
+1. run generateKey.bat
+
+or:
+
+1. openssl generates a private key in pkcs1 format, the key length is 1024 bits, (PKCS1)
+openssl genrsa -out private_PKCS1.pem 1024
+2. Convert PKCS1 private key to PKCS8
+openssl pkcs8 -topk8 -inform PEM -in private_PKCS1.pem -outform pem -nocrypt -out private.pem
+3. Generate pkcs8 public key from pkcs1 private key
+openssl rsa -in private_PKCS1.pem -pubout -out public.pem
