@@ -11,7 +11,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.chango.logencrypt.log.Logger
 import com.chango.logencrypt.ui.theme.LogEncryptTheme
+import com.chango.logencrypt.util.KeyUtil
+import java.io.File
+import kotlin.math.log
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +31,9 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        val logger = Logger(File(getExternalFilesDir("log"), "log.log"),
+            KeyUtil.readRSAPublicKeyFromFile(this))
+        logger.append("hello RAS & AES")
     }
 }
 
