@@ -169,7 +169,7 @@ class LogTest {
     }
 
     private fun readPublicKey(context: Context): PublicKey {
-        val reader = BufferedReader(InputStreamReader(context.assets.open("public_pkcs8.pem")))
+        val reader = BufferedReader(InputStreamReader(context.assets.open("public.pem")))
         val publicKey = readPublicKey(reader)
         return publicKey
     }

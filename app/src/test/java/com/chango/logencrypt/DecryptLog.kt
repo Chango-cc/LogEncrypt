@@ -89,7 +89,7 @@ class DecryptLog {
     }
 
     private fun readPrivateKey(appDir: String): PrivateKey {
-        val privateKeyFile = File("$appDir\\rsaKey\\private_pkcs8.pem")
+        val privateKeyFile = File("$appDir\\rsaKey\\private.pem")
         val privateKey = readRSAPrivateKey(BufferedReader(FileReader(privateKeyFile)))
         return privateKey
     }
