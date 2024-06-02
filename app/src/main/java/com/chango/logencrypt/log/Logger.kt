@@ -32,9 +32,9 @@ class Logger constructor(logFile: File, publicKey: PublicKey) {
         var start = 0
         var end = 0
         val mode = 1024
-        for (i in 0..plainText.length / 1024) {
-            start += i * mode
-            end += (i + 1) * mode
+        for (i in 0..plainText.length / mode) {
+            start = i * mode
+            end = (i + 1) * mode
             if (end > plainText.length) {
                 end = plainText.length
             }

@@ -69,7 +69,7 @@ class DecryptLog {
                 fis.read(cipherArray, 0, length)
                 val plainText = decryptAES(cipherAes, cipherArray, length)
 
-                println(plainText)
+                print(plainText)
             }
         }
         println("end...")
